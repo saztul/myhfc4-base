@@ -76,4 +76,10 @@ RUN mkdir -p /var/www/ \
 
 ADD apache/www-dir-opts.conf /etc/apache2/conf-enabled/www-dir-opts.conf
 
+# PHP composer support
+RUN curl -L https://getcomposer.org/installer > composer-setup.php && \
+    php composer-setup.php --filename=composer --install-dir=/usr/local/bin && \
+    rm -f composer-setup.php && \
+    composer --version
+
 WORKDIR /var/www
