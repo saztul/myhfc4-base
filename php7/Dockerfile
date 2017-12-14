@@ -58,7 +58,8 @@ RUN apt update \
         libgraphicsmagick-q16-3 \
         sphinxsearch \
         git \
-        sudo
+        sudo \
+        openssh-client
 
 RUN mkdir -p /var/www/ \
     && a2dissite 000-default \
