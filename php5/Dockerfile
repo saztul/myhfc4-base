@@ -61,7 +61,9 @@ RUN apt update \
         graphicsmagick \
         libgraphicsmagick++-q16-12 \
         libgraphicsmagick-q16-3 \
-        sphinxsearch
+        sphinxsearch \
+        git \
+        sudo
 
 RUN mkdir -p /var/www/ \
     && a2dissite 000-default \
@@ -85,6 +87,6 @@ ADD apache/www-dir-opts.conf /etc/apache2/conf-enabled/www-dir-opts.conf
 RUN curl -L https://getcomposer.org/installer > composer-setup.php && \
     php composer-setup.php --filename=composer --install-dir=/usr/local/bin && \
     rm -f composer-setup.php && \
-    composer --version
+    sudo -u www-data composer --version
 
 WORKDIR /var/www
