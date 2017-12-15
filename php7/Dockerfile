@@ -59,7 +59,9 @@ RUN apt update \
         sphinxsearch \
         git \
         sudo \
-        openssh-client
+        openssh-client \
+        zip \
+        rsync
 
 RUN mkdir -p /var/www/ \
     && a2dissite 000-default \
